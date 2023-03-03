@@ -10,8 +10,8 @@ export default function Home() {
         <Navbar />
 
         <div className="w-3/4 mx-auto mt-40">
-          <div className="flex justify-between">
-            <div className="w-1/2 relative">
+          <div className="flex flex-col md:flex-row justify-between">
+            <div className="md:w-1/2 relative">
               <Image
                 src="blob.svg"
                 className="absolute -top-3/4 -z-10"
@@ -37,6 +37,7 @@ export default function Home() {
             </div>
 
             <Image
+              className="hidden md:block"
               src="illustr1.svg"
               alt="illustration"
               width={300}
@@ -47,7 +48,7 @@ export default function Home() {
 
         <div
           id="create"
-          className="mt-80 w-full h-40 bg-[#18181b] flex items-center p-10 justify-between"
+          className="mt-80 2xl:mt-auto w-full h-40 bg-[#18181b] flex flex-col md:flex-row items-center p-10 justify-between"
         >
           <p className="font-bold text-2xl">Make your link short now</p>
           <CreateInput />

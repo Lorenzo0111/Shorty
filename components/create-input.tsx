@@ -62,14 +62,14 @@ export default function CreateInput() {
         )}
 
         <input
-          className="rounded-lg bg-white p-2 text-center text-black w-80 h-10 invalid:border-2 invalid:border-red-600 invalid:text-red-600"
+          className="rounded-lg bg-white p-2 text-center text-black w-full md:w-80 h-10 invalid:border-2 invalid:border-red-600 invalid:text-red-600"
           type="url"
           placeholder="Insert a link to short"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
         <button
-          className="rounded-lg bg-primary p-2 text-center text-black w-20 h-10"
+          className="rounded-lg bg-primary p-2 text-center text-black w-full md:w-20 h-10"
           type="submit"
         >
           Short it!

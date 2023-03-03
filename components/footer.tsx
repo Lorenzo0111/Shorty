@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#18181b] flex items-center text-center justify-center">
+    <footer className="w-full bg-[#18181b] flex items-center text-center justify-center py-4">
       <p>
         Made with <FontAwesomeIcon icon={faHeart} className="text-red-500" /> by{" "}
         <a href="https://lorenzo0111.me" className="hover:text-primary">
