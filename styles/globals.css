@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #121e2a;
+  background-color: #0c0c0d;
   color: white;
   color-scheme: dark;
   min-height: 100vh;

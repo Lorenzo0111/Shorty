@@ -30,8 +30,9 @@
     "**/*.tsx",
     "pages/api/auth/[...nextauth].js",
     "pages/api/auth/[...nextauth].js",
-    "pages/[slug].jsx"
-, "pages/dashboard.jsx"  ],
+    "pages/[slug].jsx",
+    "pages/dashboard.jsx"
+  ],
   "exclude": [
     "node_modules"
   ]

@@ -16,7 +16,7 @@ export default function LoginButton() {
   return (
     <button
       className="p-2 h-10 bg-primary rounded-xl"
-      onClick={() => signIn()}
+      onClick={() => signIn("discord")}
     >
       Login to see all your links
     </button>
