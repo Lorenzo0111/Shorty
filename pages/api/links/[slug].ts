@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
     select: {
       url: true,
-      owner: true,
+      ownerId: true,
     },
   });
 
