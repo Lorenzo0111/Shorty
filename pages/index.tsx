@@ -37,7 +37,7 @@ export default function Home() {
             </div>
 
             <Image
-              className="hidden md:block"
+              className="hidden md:block 2xl:w-[500px]"
               src="illustr1.svg"
               alt="illustration"
               width={300}

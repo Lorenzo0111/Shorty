@@ -11,5 +11,5 @@ export default function Slug() {
   if (error) return <div>Link not found</div>;
   if (!data) return <div>Loading...</div>;
 
-  router.push(data.url);
+  if (data) router.push(data.url);
 }

@@ -21,6 +21,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "prismadb": [
+        "./lib/prismadb"
       ]
     }
   },
@@ -28,8 +31,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/auth/[...nextauth].js",
-    "pages/api/auth/[...nextauth].js",
+    "pages/api/auth/[...nextauth].ts",
+    "pages/api/auth/[...nextauth].ts",
     "pages/[slug].jsx",
     "pages/dashboard.jsx"
   ],
