@@ -1,4 +1,6 @@
-function deleteLink(shortCode) {
+import type { ShortUrl } from "@prisma/client";
+
+function deleteLink(shortCode: string) {
   fetch(`/api/links/${shortCode}`, {
     method: "DELETE",
   }).then(() => {
@@ -6,7 +8,7 @@ function deleteLink(shortCode) {
   });
 }
 
-export default function LinkTable({ links }) {
+export default function LinkTable({ links }: { links: ShortUrl[] }) {
   return (
     <table className="text-center mt-8">
       <thead>

@@ -1,7 +1,7 @@
+import prisma from "@/src/lib/prismadb";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "./auth/[...nextauth]";
-import prisma from "prismadb";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 const isUrl = (urlString: string) => {
   var urlPattern = new RegExp(

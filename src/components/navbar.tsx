@@ -1,5 +1,4 @@
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { House } from "lucide-react";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="w-3/4 mx-auto h-14 flex justify-between items-center">
       <Link href="/" className="flex text-center items-center gap-2">
-        <FontAwesomeIcon icon={faHouse} /> Home
+        <House /> Home
       </Link>
       {session && (
         <button

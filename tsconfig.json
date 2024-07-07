@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -9,21 +8,22 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
       "@/*": [
-        "./*"
-      ],
-      "prismadb": [
-        "./lib/prismadb"
+        "./src/*"
       ]
     }
   },
@@ -31,10 +31,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/auth/[...nextauth].ts",
-    "pages/api/auth/[...nextauth].ts",
-    "pages/[slug].jsx",
-    "pages/dashboard.jsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,6 +1,6 @@
-import CreateInput from "@/components/create-input";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import CreateInput from "@/src/components/create-input";
+import Footer from "@/src/components/footer";
+import Navbar from "@/src/components/navbar";
 import Image from "next/image";
 
 export default function Home() {

@@ -1,12 +1,11 @@
+import prisma from "@/src/lib/prismadb";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]";
-import prisma from "prismadb";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { slug } = req.query;
-  if (!slug || slug === "undefined")
-    return res.status(400).json({ url: null });
+  if (!slug || slug === "undefined") return res.status(400).json({ url: null });
 
   const link = await prisma.shortUrl.update({
     where: {

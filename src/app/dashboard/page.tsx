@@ -1,10 +1,10 @@
-import useSWR from "swr";
-import { useSession } from "next-auth/react";
 import LinkTable from "@/components/link-table";
-import Link from "next/link";
 import Navbar from "@/components/navbar";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+import useSWR from "swr";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
 
 export default function Dashboard() {
   const { data: session } = useSession();
@@ -17,7 +17,7 @@ export default function Dashboard() {
           <Navbar />
 
           <h1 className="text-4xl font-bold text-center mt-10">
-            Welcome {session.user.name}
+            Welcome {session.user?.name}
           </h1>
 
           {data && <LinkTable links={data} />}
