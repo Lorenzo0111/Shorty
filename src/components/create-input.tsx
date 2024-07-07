@@ -1,6 +1,8 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function CreateInput() {
   const [url, setUrl] = useState("");
@@ -47,10 +49,10 @@ export default function CreateInput() {
           >
             <strong className="font-bold">Success!</strong>
             <span className="block sm:inline"> Your short link is: </span>
-            <a href={created} className="underline">
+            <Link href={created} className="underline">
               {/* eslint-disable-next-line */}
               {location.protocol}//{location.host}/{created}
-            </a>
+            </Link>
           </div>
         )}
         {error && (
@@ -70,12 +72,7 @@ export default function CreateInput() {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <button
-          className="rounded-lg bg-primary p-2 text-center text-black w-full md:w-20 h-10"
-          type="submit"
-        >
-          Short it!
-        </button>
+        <Button type="submit">Short it!</Button>
       </form>
     </>
   );

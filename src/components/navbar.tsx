@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default async function Navbar() {
   const session = await auth();
@@ -38,12 +39,7 @@ export default async function Navbar() {
             return redirect("/");
           }}
         >
-          <button
-            type="submit"
-            className="flex gap-2 items-center justify-center"
-          >
-            Login
-          </button>
+          <Button type="submit">Login</Button>
         </form>
       )}
     </nav>

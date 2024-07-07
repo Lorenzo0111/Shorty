@@ -1,7 +1,9 @@
 import CreateInput from "@/components/create-input";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -28,12 +30,11 @@ export default function Home() {
                 And never see another long link again
               </h2>
 
-              <a
-                href="#create"
-                className="block px-4 w-fit mt-4 p-2 h-10 bg-primary rounded-xl"
-              >
-                Get started
-              </a>
+              <Button asChild>
+                <Link href="#create" className="mt-4">
+                  Get started
+                </Link>
+              </Button>
             </div>
 
             <Image

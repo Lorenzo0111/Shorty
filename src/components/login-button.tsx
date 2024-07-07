@@ -1,6 +1,7 @@
 import { auth, signIn, signOut } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { Button } from "./ui/button";
 
 export default async function LoginButton() {
   const session = await auth();
@@ -13,12 +14,7 @@ export default async function LoginButton() {
           await signOut();
         }}
       >
-        <button
-          className="w-20 h-10 bg-secondary font-bold rounded-xl"
-          type="submit"
-        >
-          Logout
-        </button>
+        <Button type="submit">Logout</Button>
       </form>
     );
   }
@@ -34,9 +30,7 @@ export default async function LoginButton() {
         return redirect("/");
       }}
     >
-      <button className="p-2 h-10 bg-primary rounded-xl" type="submit">
-        Login to see all your links
-      </button>
+      <Button type="submit">Login to see all your links</Button>
     </form>
   );
 }
