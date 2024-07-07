@@ -12,7 +12,7 @@ function deleteLink(shortCode: string) {
 
 export default function LinkTable({ links }: { links: ShortUrl[] }) {
   return (
-    <table className="text-center mt-8">
+    <table className="text-center mt-8 w-full">
       <thead>
         <tr>
           <th>Short</th>

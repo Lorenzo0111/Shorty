@@ -7,6 +7,10 @@
 }
 
 body {
-  @apply bg-[#0c0c0d] text-white min-h-screen flex flex-col w-full;
+  @apply bg-[#0c0c0d] text-white;
   color-scheme: dark;
+}
+
+main {
+  @apply min-h-screen flex flex-col w-full;
 }

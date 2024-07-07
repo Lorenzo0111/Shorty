@@ -54,11 +54,15 @@ model VerificationToken {
 }
 
 model ShortUrl {
-  id        String   @id @default(cuid()) @map("_id")
+  id        String @id @default(cuid()) @map("_id")
   url       String
-  owner     User?    @relation(fields: [ownerId], references: [id])
-  ownerId   String?  @db.ObjectId
-  shortCode String   @unique
+  shortCode String @unique
+
+  hits Int      @default(0)
+  refs String[] @default([])
+
+  owner   User?   @relation(fields: [ownerId], references: [id])
+  ownerId String? @db.ObjectId
+
   createdAt DateTime @default(now())
-  hits      Int      @default(0)
 }
