@@ -1,39 +1,44 @@
 import LinkTable from "@/components/link-table";
 import Navbar from "@/components/navbar";
-import { useSession } from "next-auth/react";
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import useSWR from "swr";
 
-const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
+async function fetchLinks(userId: string) {
+  return await prisma.shortUrl.findMany({
+    where: {
+      ownerId: userId,
+    },
+  });
+}
 
-export default function Dashboard() {
-  const { data: session } = useSession();
-  const { data, error } = useSWR(session ? `/api/links` : null, fetcher);
-
-  if (session) {
+export default async function Dashboard() {
+  const session = await auth();
+  if (!session?.user)
     return (
-      <>
-        <main>
-          <Navbar />
-
-          <h1 className="text-4xl font-bold text-center mt-10">
-            Welcome {session.user?.name}
-          </h1>
-
-          {data && <LinkTable links={data} />}
-        </main>
-      </>
+      <main>
+        <div className="text-center m-auto">
+          <h1 className="text-4xl font-bold pb-4">You are not logged in</h1>
+          <Link href="/" className="p-2 bg-primary rounded-xl">
+            Return to the Home
+          </Link>
+        </div>
+      </main>
     );
-  }
+
+  const links = await fetchLinks(session.user.id);
 
   return (
-    <main>
-      <div className="text-center m-auto">
-        <h1 className="text-4xl font-bold pb-4">You are not logged in</h1>
-        <Link href="/" className="p-2 bg-primary rounded-xl">
-          Return to the Home
-        </Link>
-      </div>
-    </main>
+    <>
+      <main>
+        <Navbar />
+
+        <h1 className="text-4xl font-bold text-center mt-10">
+          Welcome {session.user?.name}
+        </h1>
+
+        <LinkTable links={links} />
+      </main>
+    </>
   );
 }

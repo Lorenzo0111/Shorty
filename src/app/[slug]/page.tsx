@@ -1,15 +1,22 @@
-import useSWR from "swr";
-import { useRouter } from "next/router";
+import { prisma } from "@/lib/prisma";
+import { notFound, redirect } from "next/navigation";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+export default async function Slug({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
+  const url = await prisma.shortUrl.update({
+    where: {
+      shortCode: slug,
+    },
+    data: {
+      hits: {
+        increment: 1,
+      },
+    },
+  });
 
-export default function Slug() {
-  const router = useRouter();
-  const { slug } = router.query;
-  const { data, error } = useSWR(`/api/links/${slug}`, fetcher);
-
-  if (error) return <div>Link not found</div>;
-  if (!data) return <div>Loading...</div>;
-
-  if (data) router.push(data.url);
+  if (url) redirect(url.url);
+  else return notFound();
 }

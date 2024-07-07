@@ -1,4 +1,6 @@
-import { FormEvent, useState } from "react";
+"use client";
+
+import { type FormEvent, useState } from "react";
 
 export default function CreateInput() {
   const [url, setUrl] = useState("");

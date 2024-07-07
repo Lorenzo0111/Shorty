@@ -1,10 +1,12 @@
+"use client";
+
 import type { ShortUrl } from "@prisma/client";
 
 function deleteLink(shortCode: string) {
   fetch(`/api/links/${shortCode}`, {
     method: "DELETE",
   }).then(() => {
-    window.location.reload();
+    location.reload();
   });
 }
 

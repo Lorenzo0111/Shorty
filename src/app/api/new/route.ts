@@ -1,7 +1,6 @@
-import prisma from "@/src/lib/prismadb";
-import { NextApiRequest, NextApiResponse } from "next";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { NextResponse } from "next/server";
 
 const isUrl = (urlString: string) => {
   var urlPattern = new RegExp(
@@ -16,35 +15,36 @@ const isUrl = (urlString: string) => {
   return !!urlPattern.test(urlString);
 };
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const session = await getServerSession(req, res, authOptions);
+export const POST = auth(async (req) => {
+  if (!req.auth?.user)
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
-  if (!req.body.url || !isUrl(req.body.url)) {
-    res.status(400).json({ error: "Missing or invalid URL" });
-    return;
-  }
+  const body = await req.json();
+  if (!body.url || !isUrl(body.url))
+    return NextResponse.json(
+      { error: "Missing or invalid URL" },
+      { status: 400 }
+    );
 
-  if (req.body.slug) {
+  if (body.slug) {
     const slugExists = await prisma.shortUrl.findFirst({
       where: {
-        shortCode: req.body.slug,
+        shortCode: body.slug,
       },
     });
 
-    if (slugExists) {
-      res.json({ error: "Slug already exists" });
-      return;
-    }
+    if (slugExists) return NextResponse.json({ error: "Slug already exists" });
   }
 
-  const slug = req.body.slug ?? Math.random().toString(36).substring(2, 8);
+  const slug = body.slug ?? Math.random().toString(36).substring(2, 8);
+
   const shortUrl = await prisma.shortUrl.create({
     data: {
-      url: req.body.url,
-      ownerId: session?.user?.id,
+      url: body.url,
+      ownerId: req.auth.user.id,
       shortCode: slug,
     },
   });
 
-  res.status(200).json(shortUrl);
-};
+  return NextResponse.json(shortUrl);
+});
