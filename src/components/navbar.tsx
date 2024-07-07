@@ -14,7 +14,7 @@ export default async function Navbar() {
       <Link href="/" className="flex text-center items-center gap-2">
         <House /> Home
       </Link>
-      {session && (
+      {session?.user && (
         <Link
           href="/dashboard"
           className="flex gap-2 items-center justify-center"
