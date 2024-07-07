@@ -1,5 +1,6 @@
 import LinkTable from "@/components/link-table";
 import Navbar from "@/components/navbar";
+import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
@@ -19,9 +20,9 @@ export default async function Dashboard() {
       <main>
         <div className="text-center m-auto">
           <h1 className="text-4xl font-bold pb-4">You are not logged in</h1>
-          <Link href="/" className="p-2 bg-primary rounded-xl">
-            Return to the Home
-          </Link>
+          <Button asChild>
+            <Link href="/">Return to the Home</Link>
+          </Button>
         </div>
       </main>
     );
@@ -29,16 +30,14 @@ export default async function Dashboard() {
   const links = await fetchLinks(session.user.id);
 
   return (
-    <>
-      <main>
-        <Navbar />
+    <main>
+      <Navbar />
 
-        <h1 className="text-4xl font-bold text-center mt-10">
-          Welcome {session.user?.name}
-        </h1>
+      <h1 className="text-4xl font-bold text-center mt-10">
+        Welcome {session.user?.name}
+      </h1>
 
-        <LinkTable links={links} />
-      </main>
-    </>
+      <LinkTable links={links} />
+    </main>
   );
 }

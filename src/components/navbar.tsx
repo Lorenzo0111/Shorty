@@ -29,7 +29,7 @@ export default async function Navbar() {
           {session?.user?.name}
         </Link>
       )}
-      {!session && (
+      {!session?.user && (
         <form
           action={async () => {
             "use server";
