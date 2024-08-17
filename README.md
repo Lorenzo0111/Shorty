@@ -1,38 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shorty
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+[![GitHub Release](https://img.shields.io/github/v/release/Lorenzo0111/Shorty)](https://github.com/Lorenzo0111/Shorty/releases/latest)
+[![GitHub License](https://img.shields.io/github/license/Lorenzo0111/Shorty)](LICENSE)
+[![Discord](https://img.shields.io/discord/1088775598337433662)](https://discord.gg/HT47UQXBqG)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  <hr />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FBank&env=MONGODB_URI&envDescription=All%20the%20Environment%20Variables%20needed%20for%20the%20app%20to%20work&envLink=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FShorty%3Ftab%3Dreadme-ov-file%23deploying&project-name=shorty&repository-name=Shorty"><img src="https://vercel.com/button" alt="Deploy with Vercel" height="32" /></a>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+</div>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## What is Shorty
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Shorty is a simple URL shortner that provides a fast and easy way to track clicks for all your links.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img src="https://github.com/Lorenzo0111/Shorty/blob/main/media/Dashboard.png?raw=true" />
 
-## Learn More
+## Deploying
 
-To learn more about Next.js, take a look at the following resources:
+You'll have to set the following environment variables to setup the dashboard, here is a list of them:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> ✨ You can generate secret tokens by visiting [this link](https://generate-secret.vercel.app/32)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Dashboard Environment Variables
 
-## Deploy on Vercel
+| Key                      | Description                     | Example       |
+| ------------------------ | ------------------------------- | ------------- |
+| DATABASE_URL      | The MongoDB url                | mongodb:// |
+| AUTH_SECRET               | The auth secret                  |               |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Serverless
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can deploy the project to Vercel or any other hosting service by clicking the buttons above.
+
+### Selfhosting
+
+If you want to selfhost, you can run `pnpm i`, `pnpm build` and `pnpm start` to start the program.
+
+The dashboard will usually be available [here](http://localhost:3000/).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+If you need help, feel free to join the [Discord Server](https://discord.gg/HT47UQXBqG) or open an issue.
