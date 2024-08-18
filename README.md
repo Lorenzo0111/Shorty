@@ -8,7 +8,7 @@
 
   <hr />
 
-<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FBank&env=MONGODB_URI&envDescription=All%20the%20Environment%20Variables%20needed%20for%20the%20app%20to%20work&envLink=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FShorty%3Ftab%3Dreadme-ov-file%23deploying&project-name=shorty&repository-name=Shorty"><img src="https://vercel.com/button" alt="Deploy with Vercel" height="32" /></a>
+<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FBank&env=MONGODB_URI,AUTH_SECRET,AUTH_DISCORD_ID,AUTH_DISCORD_SECRET&envDescription=All%20the%20Environment%20Variables%20needed%20for%20the%20app%20to%20work&envLink=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FShorty%3Ftab%3Dreadme-ov-file%23deploying&project-name=shorty&repository-name=Shorty"><img src="https://vercel.com/button" alt="Deploy with Vercel" height="32" /></a>
 
 </div>
 
@@ -26,10 +26,12 @@ You'll have to set the following environment variables to setup the dashboard, h
 
 ### Dashboard Environment Variables
 
-| Key                      | Description                     | Example       |
-| ------------------------ | ------------------------------- | ------------- |
-| DATABASE_URL      | The MongoDB url                | mongodb:// |
-| AUTH_SECRET               | The auth secret                  |               |
+| Key                 | Description               | Example    |
+| ------------------- | ------------------------- | ---------- |
+| MONGODB_URI         | The MongoDB url           | mongodb:// |
+| AUTH_SECRET         | The auth secret           |            |
+| AUTH_DISCORD_ID     | The discord client id     |            |
+| AUTH_DISCORD_SECRET | The discord client secret |            |
 
 ### Serverless
 
